@@ -1,0 +1,123 @@
+.card-perfil {
+    border-radius: 10px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 30px;
+    box-shadow: 0px 0px 3px 1px #0a0a0a20;
+    p:last-child{
+        margin-bottom: 0px;
+    }
+}
+
+.imagem-card {
+    width: 100%;
+    max-width: 150px;
+}
+
+.apelido {
+    font-size: 28px;
+    color: #625D5D;
+    margin-bottom: 7px;
+}
+
+.nome {
+    font-size: 20px;
+    color: #625D5D;
+    margin-bottom: 5px;
+}
+
+.email {
+    font-size: 16px;
+    color: #625D5D;
+    margin-bottom: 5px;
+}
+
+.telefone {
+    font-size: 16px;
+    color: #625D5D;
+}
+
+.border-col {
+    border-left: 1px solid var(--primary-color);
+}
+
+.titulo-favoritos {
+    font-size: 20px;
+    color: #625D5D;
+    margin-top: 20px;
+    font-weight: 400;
+}
+
+.card-sem-favoritos {
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding-left: 16px;
+    box-shadow: 0px 0px 3px 1px #0a0a0a20;
+    h3 {
+        color: var(--primary-color);
+        font-size: 33px;
+        margin-top: 55px;
+        padding-right: 20px;
+    }
+    p {
+        color: #625D5D;
+        font-size: 20px;
+    }
+}
+
+.card-sem-perfil {
+    h1 {
+        color: var(--primary-color);
+        font-size: 33px;
+        margin-top: 60px;
+    }
+    p {
+        color: #625D5D;
+        font-size: 20px;
+    }
+    h3 {
+        color: var(--primary-color);
+        font-size: 25px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.imagem-card-sem-perfil {
+    width: 30%;
+}
+
+@media (max-width: 991px) {
+    .imagem-card-sem-perfil, .imagem-sem-favorito {
+        width: 90%;
+    }
+
+    .card-sem-perfil h1{ margin-top: 30px; }
+}
+
+@media (max-width: 460px) {
+    .card-sem-favoritos h3{ margin-top: 0px; }
+    .card-sem-perfil h1{ margin-top: 0px; }
+    .card-sem-favoritos h3{ font-size: 24px; margin-top: 14px; }
+    .card-sem-perfil h1 {font-size: 26px;} .card-sem-perfil p {font-size: 18px;}
+}
+
+@media (min-width: 768px) {
+    .imagem-card-sem-perfil {
+        width: 40%;
+    }
+    .imagem-sem-favoritos {
+        width: 15%;
+    }
+}
+
+@media (min-width: 1000px) {
+    .imagem-card-sem-perfil {
+        width: 30%;
+    }
+}

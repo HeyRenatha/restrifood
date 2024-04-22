@@ -1,0 +1,39 @@
+
+label {
+    color: #534F4F;
+    font-weight: 100;
+    margin-bottom: 0px;
+    font-size: 13px;
+}
+
+input, textarea {
+    margin-bottom: 10px;
+    box-shadow: 0px 1px 2px 1px #0a0a0a10;
+    border-radius: 8px;
+}
+
+.card-expansivo {
+    margin-top: 20px;
+    margin-bottom: 100px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 1px #0a0a0a40;
+    padding: 16px;
+    min-height: 179px;
+    transition: 0.4s linear all;
+    position: relative;
+    h3{
+        color: var(--primary-color);
+        font-size: 22px;
+    }
+    p{
+        color: #625D5D;
+    }
+    span {
+        color: #625D5D;
+    }
+    &:hover{
+        cursor: pointer;
+        box-shadow: 0px 0px 5px 2px #0a0a0a40;
+    }
+}

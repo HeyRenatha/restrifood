@@ -1,0 +1,141 @@
+<app-navbar></app-navbar>
+<div class="aba-titulo">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-lg-2 mt-3">
+                <div class="centralizado">
+                    <h2  class="titulo-aba" *ngIf="categoria === 'vegano'">
+                    <i class="bi bi-chevron-left"></i> VEGANO</h2>
+                    <h2  class="titulo-aba" *ngIf="categoria === 'vegetariano'">
+                    <i class="bi bi-chevron-left"></i> VEGETARIANO</h2>
+                    <h2  class="titulo-aba" *ngIf="categoria === 'fitness'">
+                    <i class="bi bi-chevron-left"></i> FIT</h2>
+                    <h2  class="titulo-aba" *ngIf="categoria === 'zero açúcar'">
+                    <i class="bi bi-chevron-left"></i> ZERO AÇÚCAR</h2>
+                    <h2  class="titulo-aba" *ngIf="categoria === 'zero lactose'">
+                    <i class="bi bi-chevron-left"></i> ZERO LACTOSE</h2>
+                    <h2  class="titulo-aba" *ngIf="categoria === 'zero glúten'">
+                    <i class="bi bi-chevron-left"></i> ZERO GLÚTEN</h2>
+                </div>
+            </div>
+            <div class="col-9 col-lg-8 pb-3">
+                <p class="descricao centralizado" *ngIf="categoria === 'vegano'">"Alimentos veganos não possuem nada de origem animal!"</p>
+                <p class="descricao centralizado" *ngIf="categoria === 'vegetariano'">"Alimentos e produtos vegetarianos não possuem nada de carne animal!"</p>
+                <p class="descricao centralizado" *ngIf="categoria === 'fitness'">"Alimentação fit é uma forma de se alimentar com intuito de melhorar a forma física e a saúde!"</p>
+                <p class="descricao centralizado" *ngIf="categoria === 'zero açúcar'">"Alimentação zero açúcar não contém açúcar nas rceitas mas sem deixar de ser uma delícia"</p>
+                <p class="descricao centralizado" *ngIf="categoria === 'zero lactose'">"Alimentação zero lactose não possui lactose na receita mas sem deixar de ser uma delícia!"</p>
+                <p class="descricao centralizado" *ngIf="categoria === 'zero glúten'">"Alimentação zero glúten não contém glúten na receita mas sem deixar de ser uma delícia!"</p>
+
+            </div>
+            <div class="col-3 col-lg-2 text-end pb-3">
+                <img class="imagem-aba-restaurantes" *ngIf="categoria === 'vegano'" src="../../../assets/img/vegano.png" alt="">
+                <img class="imagem-aba-restaurantes" *ngIf="categoria === 'vegetariano'" src="../../../assets/img/vegetariano.png" alt="">
+                <img class="imagem-aba-restaurantes" *ngIf="categoria === 'fitness'" src="../../../assets/img/fit.png" alt="">
+                <img class="imagem-aba-restaurantes" *ngIf="categoria === 'zero açúcar'" src="../../../assets/img/acucar.png" alt="">
+                <img class="imagem-aba-restaurantes" *ngIf="categoria === 'zero lactose'" src="../../../assets/img/lactose.png" alt="">
+                <img class="imagem-aba-restaurantes" *ngIf="categoria === 'zero glúten'" src="../../../assets/img/gluten.png" alt="">
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-3">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-3 d-none d-lg-block">
+      <p class="titlo-filtro-estado">Selecione o seu estado:</p>
+    </div>
+    <div class="col-12 col-lg-3 me-0 pe-lg-5">
+      <select class="form-select form-select-sm" aria-label=".form-select-sm example" [(ngModel)]="estadoSelecionado">
+        <option value="" selected>Qual seu estado?</option>
+        <option value="AC">Acre</option>
+        <option value="AL">Alagoas</option>
+        <option value="AP">Amapá</option>
+        <option value="AM">Amazonas</option>
+        <option value="BA">Bahia</option>
+        <option value="CE">Ceará</option>
+        <option value="DF">Distrito Federal</option>
+        <option value="ES">Espírito Santo</option>
+        <option value="GO">Goiás</option>
+        <option value="MA">Maranhão</option>
+        <option value="MT">Mato Grosso</option>
+        <option value="MS">Mato Grosso do Sul</option>
+        <option value="MG">Minas Gerais</option>
+        <option value="PA">Pará</option>
+        <option value="PB">Paraíba</option>
+        <option value="PR">Paraná</option>
+        <option value="PE">Pernambuco</option>
+        <option value="PI">Piauí</option>
+        <option value="RJ">Rio de Janeiro</option>
+        <option value="RN">Rio Grande do Norte</option>
+        <option value="RS">Rio Grande do Sul</option>
+        <option value="RO">Rondônia</option>
+        <option value="RR">Roraima</option>
+        <option value="SC">Santa Catarina</option>
+        <option value="SP">São Paulo</option>
+        <option value="SE">Sergipe</option>
+        <option value="TO">Tocantins</option>
+      </select>
+    </div>
+    <div class="col-12 col-lg-2 mt-3 mt-lg-0">
+      <app-button textButton="Filtrar" (click)="filtrarEstado()"></app-button>
+      <button class="botao-branco d-inline-block d-lg-none ms-3" *ngIf="filtrouRestaurante" (click)="limparFiltro()">Limpar Filtro</button>
+    </div>
+    <!-- ESTE BOTÃO SÓ APARECERÁ QUANDO TIVER FEITO UMA FILTRAGEM | e a partir do LG essa coluna aparece, mas no mobile o botão fica junto no de cima -->
+    <div class="col-12 col-lg-3 mt-3 mt-lg-0 d-none d-lg-block" *ngIf="filtrouRestaurante">
+      <button class="botao-branco" (click)="limparFiltro()">Limpar Filtro</button>
+    </div>
+  </div>
+  <!-- QUANDO TEM RESTAURANTES -->
+  <div class="row mb-5" *ngIf="listRestaurantes?.length">
+    <div class="col-12 col-md-6" *ngFor="let restaurante of listRestaurantes; let i = index">
+      <!-- CARD RESTAURANTE -->
+        <div class="card-expansivo" >
+          <div class="row">
+            <div class="col-4">
+              <img [src]="restaurante.imagem" onerror="this.src='../../../assets/img/erro.png'" width="90%" (click)="abreFechaCard(i)">
+            </div>
+            <div class="col-7" (click)="abreFechaCard(i)">
+              <h3>{{restaurante.nome}}</h3>
+              <p>{{restaurante.descricao}}</p>
+            </div>
+            <div class="col-1">
+              <i class="bi bi-heart mb-3 icone-coracao" [id]="restaurante.instagram" (click)="salvarFavoritos(restaurante, restaurante.instagram)"></i>
+              <i class="bi bi-chevron-down icone-setinha" [id]="'setinha'+i" (click)="abreFechaCard(i)"></i>
+            </div>
+          </div>
+          <div class="row d-none" [id]="i" (click)="abreFechaCard(i)">
+            <div class="col-12 mb-2 mt-3">
+              <i class="bi bi-geo-alt-fill c-primary me-2"></i><span>{{restaurante.endereco}}</span>
+            </div>
+            <div class="col-12 mb-2">
+              <i class="bi bi-telephone-fill c-primary me-2"></i><span>{{restaurante.telefone}}</span>
+            </div>
+            <div class="col-12 mb-3">
+              <i class="bi bi-instagram c-primary me-2"></i><span>{{restaurante.instagram}}</span>
+            </div>
+            <div class="col-12">
+              <button class="botao-categoria" *ngFor="let categoria of restaurante.categoria">{{categoria | uppercase}}</button>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <!-- QUANDO NÃO TEM RESTAURANTES (sejam cadastrados, ou sejam filtrados) -->
+  <div class="row mb-5" *ngIf="!listRestaurantes?.length">
+    <div class="col-12 col-md-6">
+      <div class="card-expansivo">
+        <div class="row">
+          <div class="col-4">
+            <img src='../../../assets/img/erro.png' width="90%">
+          </div>
+          <div class="col-8">
+            <h3>Sem restaurantes cadastrados</h3>
+            <p>Por favor selecione outro estado para a pesquisa, pois não encontramos restaurantes cadastrados neste estado para a categoria: {{categoria}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<app-footer></app-footer>

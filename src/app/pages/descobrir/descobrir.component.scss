@@ -1,0 +1,36 @@
+.aba-titulo {
+    background-color: var(--primary-color);
+    i {
+        color: #fff;
+    }
+}
+
+.titulo-aba {
+    padding-left: 20px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.centralizado{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.descricao {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+    margin-left: 70px;
+}
+
+.imagem-aba-restaurantes {
+    width: 100%;
+    max-width: 90px;
+    margin-top: 0px;
+}
+
+@media (max-width: 460px) {
+    .descricao{ margin-left: 0px;}
+}

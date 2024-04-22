@@ -1,0 +1,72 @@
+<div class="background-desk d-none d-lg-block">
+<div class="container">
+    <div class="row">
+        <!-- LADO ESQUERDO -->
+        <div class="col-5">
+            <h1 class="titulo-logo-desk">Restrifood</h1>
+            <h2 class="subtitulo-logo-desk">Comida <br> para todos!</h2>
+            <h3 class="oficial-desk">É oficial!</h3>
+            <p>Agora você tem tudo que pode e gosta na palma da sua mão!</p>
+            <h2 class="começar-sem-cadastro">Começar sem cadastro?</h2>
+            <button routerLink="/termos" class="botao-branco">COMEÇAR</button>
+        </div>
+
+        <div class="col-1"></div>
+        
+        <!-- LADO DIREITO -->
+        <div class="col-6">
+            <div class="container-login">
+                <img class="imagem-login" src="../../../assets/img/menina-login.png" alt="">
+                <form [formGroup]="formLogin" class="col-12 container-form">
+                    <label for="login-input" class="form-label">EMAIL</label>
+                        <input type="email" class="form-control" formControlName="email">
+                        @if (formLogin.controls['email'].invalid && formLogin.get('email')?.touched) {
+                            <label class="mensagem-erro">Por favor digite um e-mail válido</label>
+                        }
+                        <br>
+                    <label for="login-input" class="form-label">SENHA</label>
+                        <input type="password" class="form-control" formControlName="senha">
+                        @if (formLogin.controls['senha'].invalid && formLogin.get('senha')?.touched) {
+                            <label class="mensagem-erro">Por favor digite uma senha válida</label>
+                        }
+                        <br>
+                        <div class="text-center mt-4">
+                            <button routerLink="/termos" class="botao-branco" [disabled]="!formLogin.valid">ENTRAR</button>
+                            <p routerLink="/cadastro" class="link-cadastrar hover">CADASTRAR</p>
+                        </div>    
+                    </form>
+            </div>
+            <div class="esqueceu-senha">
+                <p routerLink="/recuperar" class="hover">Opa! Esqueceu a Senha?</p>
+                <p class="cor-recuperar-senha">Sem problemas! Você pode recuperá-la <span routerLink="/recuperar" class="hover">aqui!</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- MOBILE / TABLET -->
+
+<div class="d-block d-lg-none">
+    <div class="background-mobile">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="titulo-logo-mobile">Restrifood</h1>
+                    <h2 class="subtitulo-logo-mobile">Comida <br> para todos!</h2>
+                    <div class="text-center textos-inicio-mobile">
+                        <img class="imagem-mobile-inicio" src="../../../assets/img/menina-donuts.png" alt="">
+                        <br>
+                        <button routerLink="/login-mobile" class="botao-branco ajuste-botao">ENTRAR</button>
+                        <p routerLink="/cadastro" class="hover">CADASTRAR</p>
+                        <p routerLink="/comecar" class="hover">Começar sem cadastro 
+                        <span>
+                            <i class="bi bi-arrow-right hover"></i>
+                        </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

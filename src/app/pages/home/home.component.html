@@ -1,0 +1,134 @@
+    <app-navbar></app-navbar>
+      <div class="header-home-background">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-md-8 col-lg-6">
+                    <div class="texto-header-home">
+                        <h1>OPÇÕES IRRESISTÍVEIS PARA VOCÊ!</h1>
+                        <p>"Descubra uma nova forma de saborear a saúde: Encontre os melhores restaurantes perto de você!</p>
+                        <app-button routerLink="/descobrir" textButton="DESCOBRIR"></app-button>
+                    </div>
+                </div>
+                <div class="col-1 d-none d-lg-block"></div>
+                <div class="col-3 col-sm-4 col-md-4 col-lg-5 py-4 d-none d-sm-block">
+                    <img class="menina-hamburguer" src="../../../assets/img/menina-hamburguer.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container pb-5">
+      <!-- <div class="row">
+        <div class="col-5 mb-3 mt-3">
+          <div class="card-restrichef">
+            <div class="row">
+              <div class="col-3">
+                <img src="../../../assets/img/menina-compras.png" width="100%" alt="">
+              </div>
+              <div class="col-9">
+                <h1 class="titulo-restrichef"><i class="bi bi-robot c-primary"></i> RestriChef - Gerador de Receitas</h1>
+            <p class="introducao">RestriChef é o seu gerador de receitas com IA!</p>
+            <p>
+              Aqui você pode solicitar uma receita com os ingredientes desejados, selecionando a sua restrição e o RestriChef gera uma receita especial para você!
+            </p>
+            <button class="botao-branco-gerador" routerLink="/restrichef">Quero uma Receita  <i class="bi bi-robot"></i></button>
+              </div>
+            </div>  
+          </div>
+        </div>
+        <div class="col-7">
+          <div class="row px-1 px-md-5 pb-5">
+            <div class="col-4 col-lg-4 px-3 px-md-0">
+                <div class="cards-filtro" (click)="redirecionaRestaurante('vegano')">
+                  <img class="imagem-card" src="../../../assets/img/vegano.png" alt="...">
+                </div>
+                <p class="text-center mt-1">Vegano</p>
+            </div>
+            <div class="col-4 col-lg-4 px-3 px-md-0">
+                <div class="cards-filtro" (click)="redirecionaRestaurante('vegetariano')">
+                  <img class="imagem-card" src="../../../assets/img/vegetariano.png" alt="...">
+                </div>
+                <p class="text-center mt-1">Vegetariano</p>
+            </div>
+            <div class="col-4 col-lg-4 px-3 px-md-0">
+                <div class="cards-filtro" (click)="redirecionaRestaurante('fitness')">
+                  <img class="imagem-card" src="../../../assets/img/fit.png" alt="...">
+                </div>
+                <p class="text-center mt-1">Fitness</p>
+            </div>
+            <div class="col-4 col-lg-4 px-3 px-md-0">
+                <div class="cards-filtro" (click)="redirecionaRestaurante('zero açúcar')">
+                  <img class="imagem-card" src="../../../assets/img/acucar.png" alt="...">
+                </div>
+                <p class="text-center mt-1">Zero Açúcar</p>
+            </div>
+            <div class="col-4 col-lg-4 px-3 px-md-0">
+                <div class="cards-filtro" (click)="redirecionaRestaurante('zero lactose')">
+                  <img class="imagem-card" src="../../../assets/img/lactose.png" alt="...">
+                </div>
+                <p class="text-center mt-1">Zero Lactose</p>
+            </div>
+            <div class="col-4 col-lg-4 px-3 px-md-0">
+                <div class="cards-filtro" (click)="redirecionaRestaurante('zero glúten')">
+                  <img class="imagem-card" src="../../../assets/img/gluten.png" alt="...">
+                </div>
+                <p class="text-center mt-1">Zero Glúten</p>
+            </div>
+        </div>
+        </div>
+      </div> -->
+      <!-- DIVISAO MODELO 2 -->
+      <div class="row">
+        <div class="col-12">
+          <div class="card-restrichef">
+            <div class="row">
+              <div class="col-12 col-md-8 text-start">
+                <h1 class="titulo-restrichef"><i class="bi bi-robot c-primary"></i> RestriChef - Gerador de Receitas</h1>
+                <p class="introducao mb-0">RestriChef é o seu gerador de receitas com IA!</p>
+              </div>
+              <div class="col-12 col-md-4 mt-3 mt-md-0">
+                <button class="botao-branco-gerador" routerLink="/restrichef">Quero uma Receita  <i class="bi bi-robot"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="row px-1 px-md-5 pb-5">
+            <div class="col-4 col-lg-2 px-3 px-md-0">
+                <div class="cards-filtro" (click)="redirecionaRestaurante('vegano')">
+                  <img class="imagem-card" src="../../../assets/img/vegano.png" alt="...">
+                </div>
+                <p class="text-center mt-1">Vegano</p>
+            </div>
+            <div class="col-4 col-lg-2 px-3 px-md-0">
+                <div class="cards-filtro" (click)="redirecionaRestaurante('vegetariano')">
+                  <img class="imagem-card" src="../../../assets/img/vegetariano.png" alt="...">
+                </div>
+                <p class="text-center mt-1">Vegetariano</p>
+            </div>
+            <div class="col-4 col-lg-2 px-3 px-md-0">
+                <div class="cards-filtro" (click)="redirecionaRestaurante('fitness')">
+                  <img class="imagem-card" src="../../../assets/img/fit.png" alt="...">
+                </div>
+                <p class="text-center mt-1">Fitness</p>
+            </div>
+            <div class="col-4 col-lg-2 px-3 px-md-0">
+                <div class="cards-filtro" (click)="redirecionaRestaurante('zero açúcar')">
+                  <img class="imagem-card" src="../../../assets/img/acucar.png" alt="...">
+                </div>
+                <p class="text-center mt-1">Zero Açúcar</p>
+            </div>
+            <div class="col-4 col-lg-2 px-3 px-md-0">
+                <div class="cards-filtro" (click)="redirecionaRestaurante('zero lactose')">
+                  <img class="imagem-card" src="../../../assets/img/lactose.png" alt="...">
+                </div>
+                <p class="text-center mt-1">Zero Lactose</p>
+            </div>
+            <div class="col-4 col-lg-2 px-3 px-md-0">
+                <div class="cards-filtro" (click)="redirecionaRestaurante('zero glúten')">
+                  <img class="imagem-card" src="../../../assets/img/gluten.png" alt="...">
+                </div>
+                <p class="text-center mt-1">Zero Glúten</p>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>

@@ -1,0 +1,75 @@
+.background-login-mobile {
+    background-color: #fafafa;
+}
+
+.container-login {
+    background-color: var(--primary-color);
+    border-radius: 20px;
+    padding: 20px 30px;
+    margin-top: 300px;
+}
+
+.imagem-login {
+    width: 100%;
+    max-width: 508px;
+    position: absolute;
+    top: 95px;
+    left: 50%;
+    transform: translate(-50%, 0px);
+}
+
+.seta-voltar{
+    position: absolute;
+    top: 40px;
+    left: 30px;
+    font-size: 28px; 
+}
+
+label {
+    color: #FFFFFF;
+    font-weight: 100;
+    margin-bottom: 0px;
+}
+
+input {
+    margin-bottom: 20px;
+}
+
+.container-form{
+    margin-top: 50px;
+}
+
+.link-cadastrar {
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.esqueceu-senha{
+    p{
+        font-size: 17px;
+        font-weight: 500;
+        color: var(--primary-color)
+    };
+    margin-top: 20px;
+    text-align: center;
+}
+
+.cor-recuperar-senha {
+    color: #534F4F !important;
+    font-weight: 400 !important;
+    span {
+        color: var(--primary-color);
+    }
+}
+
+i {
+    font-size: 20px;
+}
+
+@media (max-width: 507px) {
+    .imagem-login {   max-width: 375px; top: 38px; }
+    .container-login { margin-top: 160px; }
+}

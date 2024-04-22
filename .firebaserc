@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "restrifood-25e0f"
+  },
+  "targets": {
+    "restrifood-25e0f": {
+      "hosting": {
+        "restrifood": [
+          "restrifood-comida-para-todos"
+        ]
+      }
+    }
+  }
+}

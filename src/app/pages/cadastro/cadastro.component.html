@@ -1,0 +1,42 @@
+<div class="background-padrao">
+    <div class="container">
+        <div class="row">
+            <!-- LADO ESQUERDO -->
+            <div class="col-12 col-lg-6">
+                <div class="d-none d-sm-block">
+                    <h1 class="titulo-logo-desk">Restrifood</h1>
+                    <h2 class="subtitulo-logo-desk mb-5">Comida para todos!</h2>
+                </div>
+                <!-- <i class="bi bi-arrow-left c-primary float-start"></i> -->
+                <i class="bi bi-arrow-left-circle-fill c-primary float-start"></i>
+                <div class="container-form-cadastro mt-5 mt-sm-o px-sm-5">
+                    <h3 class="titulo-pagina">CADASTRAR</h3>
+                    <label for="cadastro-input" class="form-label">NOME</label>
+                        <input type="text" class="form-control">
+                    <label for="cadastro-input" class="form-label">APELIDO</label>
+                        <input type="text" class="form-control">
+                    <label for="cadastro-input" class="form-label">EMAIL</label>
+                        <input type="email" class="form-control">
+                    <label for="cadastro-input" class="form-label">TELEFONE</label>
+                        <input type="number" class="form-control">
+                    <label for="cadastro-input" class="form-label">SENHA</label>
+                        <input type="password" class="form-control">
+                        <span>A senha deve conter 8 dígitos.</span>
+                    <div class="d-block d-lg-none text-end mt-3">
+                        <app-button textButton="PRONTO"></app-button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- LADO DIREITO -->
+
+            <div class="col-6 text-center d-none d-lg-block">
+                <img class="imagem-cadastro" src="../../../assets/img/menina-donuts.png" alt="">
+                <br>
+                <app-button routerLink="/termos" textButton="PRONTO"></app-button>
+            </div>
+
+        </div>
+    </div>
+</div>

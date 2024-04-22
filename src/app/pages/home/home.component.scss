@@ -1,0 +1,127 @@
+.background-desk-branco{
+    background-color: #fafafa;
+    display: block;
+    height: 100vh;
+    width: 100%;
+    padding: 20px;
+}
+
+.header-home-background {
+    background-color: pink;
+    background-image: url("../../../assets/img/header.png");
+    background-position: center;
+}
+
+.texto-header-home {
+    h1{
+        color: #fff;
+        font-weight: 400;
+        font-size: 30px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    p{
+        color: #fff;
+        font-size: 25px;
+        margin-bottom: 30px;
+    }
+    padding: 40px;
+    margin-left: 40px;
+}
+
+.menina-hamburguer {
+    width: 100%;
+    max-width: 180px;
+    margin-left: 100px;
+}
+// NO MOBILE NÃO TERÁ MARGIN LEFT E A IMAGEM VAI OCUPAR 100% SEM MARGIN
+
+// MEDIA QUERIE PARA AJUSTE NO MOBILE
+@media (max-width: 767px) {
+    .texto-header-home{
+        margin-left: 0px;
+        padding: 40px 0px;
+    }
+
+    .menina-hamburguer {
+        position: absolute;
+        width: 210px;
+        right: 20px;
+    }
+}
+
+@media (max-width: 905px) {
+    .menina-hamburguer {
+        margin-left: 0px;
+    }
+}
+
+.cards-filtro {
+    border-radius: 40px;
+    border: 1px solid #0a0a0a40;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    max-width: 130px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 30px;
+    box-shadow: 1px 4px 4px 3px #0a0a0a20;
+    transition: 0.4s linear all;
+    &:hover{
+        cursor: pointer;
+        box-shadow: 0px 0px 5px 2px #0a0a0a40;
+    }
+}
+
+.imagem-card {
+    width: 100%;
+    max-width: 90px;
+}
+
+.card-restrichef{
+    border-radius: 20px;
+    border: 1px solid #0a0a0a40;
+    text-align: center;
+    padding: 30px;
+    //max-width: 130px;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 50px;
+    box-shadow: 1px 4px 4px 3px #0a0a0a20;
+    transition: 0.4s linear all;
+    &:hover{
+        cursor: pointer;
+        box-shadow: 0px 0px 5px 2px #0a0a0a40;
+    }
+    p {
+        font-size: 14px;
+    }
+}
+
+.titulo-restrichef {
+    font-size: 20px;
+    color: var( --primary-color);
+}
+
+.botao-branco-gerador {
+    outline: none;
+    border: none;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 6px 40px;
+    border-radius: 25px;
+    font-weight: 400;
+    box-shadow: 0px 4px 3px 1px #0a0a0a20;
+}
+
+@media (max-width: 460px) {
+    .imagem-card {
+        width: 100%;
+        max-width: 70px;
+    }
+}
+
+p{
+    color: #625D5D;
+}

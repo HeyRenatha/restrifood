@@ -1,0 +1,64 @@
+.titulo-logo-desk {
+    margin-top: 35px !important;
+}
+
+.container-form-cadastro {
+    padding: 2px 0px 40px 0px;
+}
+
+p {
+    color: #534F4F;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+label {
+    color: #534F4F;
+    font-weight: 300;
+    margin-bottom: 0px;
+    font-size: 17px;
+}
+
+input {
+    box-shadow: 0px 1px 2px 1px #0a0a0a10;
+    border-radius: 8px;
+    font-size: 17px;
+}
+
+span {
+    font-size: 12px;
+    color: #534F4F;
+}
+
+.imagem-termos {
+    width: 90%;
+    margin-top: 100px;
+    margin-bottom: 0px;
+    max-width: 170px;
+}
+
+input[type="checkbox"]{
+    border: 1px solid var(--primary-color);
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.container-scroll-termos {
+    height: 320px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding-right: 20px;
+}
+
+i {
+    font-size: 20px;
+}
+
+@media (max-width: 460px) {
+    .container-scroll-termos{
+        height: auto;
+    }
+}

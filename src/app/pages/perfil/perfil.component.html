@@ -1,0 +1,65 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-10">
+            <!-- CARD QUANDO TEM PERFIL -->
+            <div class="card-perfil" *ngIf="temPerfil">
+                <div class="row">
+                    <div class="col-3">
+                        <img class="imagem-card" src="https://api.dicebear.com/7.x/bottts/svg?seed={{nickUser}}" alt="">
+                    </div>
+                    <div class="col-3 text-start">
+                        <p class="apelido">{{nickUser}} <i class="bi bi-pencil-square c-primary"></i></p>
+                        <p class="nome">{{nameUser}}</p>
+                        <p class="email">{{emailUser}}</p>
+                        <p class="telefone">{{telefoneUser}}</p>
+                    </div>
+                    <div class="col-3 border-col pt-5">
+                        <i class="bi bi-check-square c-primary"></i>
+                        <p>Termos de uso</p>
+                    </div>
+                    <div class="col-3 pt-5">
+                        <i class="bi bi-heart-fill c-primary"></i>
+                        <p>0</p>
+                    </div>
+                </div>
+            </div>
+            <!-- CARD QUANDO NÃO TEM PERFIL -->
+            <div class="card-perfil" *ngIf="!temPerfil">
+                <div class="row">
+                    <div class="col-7 col-md-8 card-sem-perfil">
+                        <h1>Quer um perfil para você?</h1>
+                        <p>Faça um cadastro clicando em cadastrar:</p>
+                        <h3 routerLink="/cadastro">CADASTRAR</h3>
+                    </div>
+                    <div class="col-3 col-lg-4">
+                        <img class="imagem-card-sem-perfil" src="../../../assets/img/menina-tablet.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-12">
+            <h3 class="titulo-favoritos">Seus favoritos mais recentes! <i class="bi bi-plus-circle-fill c-primary"></i></h3>
+        </div>
+        <div class="col-12">
+            <div class="card-sem-favoritos">
+                <div class="row justify-content-center">
+                    <div class="col-4 col-lg-2">
+                        <img class="imagem-sem-favorito" src="../../../assets/img/menina-favoritos.png" alt="" width="90%">
+                    </div>
+                    <div class="col-8 col-lg-5">
+                        <h3 *ngIf="temPerfil">Cadê os seus favoritos?</h3>
+                        <p *ngIf="temPerfil">Você ainda não tem nenhum favorito.</p>
+                        <h3 class="text-center me-5" *ngIf="!temPerfil">Você precisa de um perfil para "favoritar"!</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-end mt-4">
+        <app-button textButton="SAIR" routerLink="/sair" ></app-button>
+    </div>
+</div>
+<app-footer></app-footer>

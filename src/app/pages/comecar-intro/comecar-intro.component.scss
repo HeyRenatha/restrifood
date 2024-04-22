@@ -1,0 +1,27 @@
+.background-comecar-intro {
+    background-color: #FFBEAA;
+    display: block;
+    height: 100vh;
+    width: 100%;
+    padding: 20px;
+}
+
+.imagem-comecar {
+    width: 100%;
+    margin-top: 60px;
+    margin-bottom: 10px;
+    max-width: 350px;
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 27px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+p {
+    color: var(--primary-color);
+    font-size: 18px;
+    line-height: 25px;
+}

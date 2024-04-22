@@ -1,0 +1,57 @@
+<div class="background-padrao">
+    <div class="container">
+        <div class="row">
+            <!-- LADO ESQUERDO -->
+            <div class="col-12 col-lg-7">
+                <div class="d-none d-sm-block">
+                    <h1 class="titulo-logo-desk">Restrifood</h1>
+                    <h2 class="subtitulo-logo-desk mb-5">Comida para todos!</h2>
+                </div>
+                <!-- <i class="bi bi-arrow-left c-primary float-start"></i> -->
+                <i class="bi bi-arrow-left-circle-fill c-primary float-start"></i>
+                <div class="container-form-cadastro mt-5 mt-sm-o px-sm-5">
+                    <h3 class="titulo-pagina">TERMOS E CONDIÇÕES</h3>
+                    <div class="container-scroll-termos">
+                        <p>Bem-vindo ao Restrifood, um site dedicado a usuários que dependem de dietas restritivas por motivos de saúde ou bem-estar. Antes de utilizar nossos serviços, por favor, leia atentamente estes Termos e Condições. Ao acessar ou utilizar nosso site, você concorda em ficar vinculado a estes termos. Se você não concordar com algum aspecto destes termos, por favor, não utilize nosso site.</p>
+                        <p>
+                            1. Uso do Site:
+                            a. Nosso site destina-se a fornecer informações e recursos para aqueles que seguem dietas restritivas por razões de saúde ou bem-estar.
+                            b. Você concorda em utilizar nosso site apenas para fins legítimos e de acordo com estes Termos e Condições.
+                        </p>
+                        <p>
+                            2. Informações e Recursos:
+                            a. Nosso site pode fornecer informações sobre restaurantes e estabelecimentos que oferecem opções de alimentos adequadas para dietas restritivas.
+                            b. Todas as informações fornecidas em nosso site são apenas para fins informativos. Não garantimos a precisão ou atualidade dessas informações.
+                            c. Não nos responsabilizamos por quaisquer consequências resultantes do uso das informações fornecidas em nosso site.
+                        </p>
+                        <p>
+                            3. Alterações nos Termos e Condições:
+                            a. Reservamo-nos o direito de modificar estes Termos e Condições a qualquer momento, sem aviso prévio.
+                            b. É sua responsabilidade revisar periodicamente estes termos para estar ciente de quaisquer alterações. O uso continuado do nosso site após quaisquer modificações constitui aceitação dessas modificações.
+                        </p>
+                        <p>Ao utilizar nosso site, você concorda com estes Termos e Condições de Uso. Obrigado por escolher nosso serviço e esperamos que nosso site seja útil para você.</p>
+                    </div>                       
+                    <div class="form-check">
+                        <input class="form-check-input hover" type="checkbox" id="flexCheckDefault" [(ngModel)]="termoAceito">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          Li e aceito os termos e condições de uso.
+                        </label>
+                    </div>
+                    <div class="d-block d-lg-none text-end mt-3">
+                        <app-button routerLink="/home" textButton="PRONTO" [desabilitar]="termoAceito"></app-button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- LADO DIREITO -->
+
+            <div class="col-5 text-center d-none d-lg-block">
+                <img class="imagem-termos" src="../../../assets/img/menina-lapis1.png" alt="">
+                <br>
+                <app-button routerLink="/home" textButton="PRONTO" [desabilitar]="termoAceito"></app-button>
+            </div>
+
+        </div>
+    </div>
+</div>

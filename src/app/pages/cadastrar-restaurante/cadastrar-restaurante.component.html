@@ -1,0 +1,71 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-lg-6 mt-5">
+            <i class="bi bi-arrow-left c-primary float-start"></i>
+            <div class="container-form-cadastro mt-5 mt-sm-o px-sm-5">
+                <h3 class="titulo-pagina">CADASTRAR RESTAURANTE</h3>
+                <label class="form-label">LINK IMAGEM</label>
+                    <input type="text" class="form-control">
+                <label class="form-label">NOME</label>
+                    <input type="text" class="form-control" [(ngModel)]="nome">
+                <label class="form-label">DESCRIÇÃO</label>
+                    <textarea class="form-control" rows="3" maxlength="112" [(ngModel)]="descricao"></textarea>
+                <label class="form-label">ENDEREÇO</label>
+                    <input type="text" class="form-control" [(ngModel)]="endereco">
+                <label class="form-label">TELEFONE</label>
+                    <input type="string" class="form-control" [(ngModel)]="telefone">
+                <label class="form-label">INSTAGRAM</label>
+                    <input type="text" class="form-control" [(ngModel)]="instagram">
+                <label class="form-label">CATEGORIA</label>
+                    <input type="text" class="form-control" [(ngModel)]="categoria">
+                <div class="text-end mt-3">
+                    <app-button textButton="PRONTO"></app-button>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 mt-5">
+            <div>
+                <h3 class="titulo-pagina mt-5">
+                    VIZUALIZAÇÃO DO CARD
+                </h3>
+            </div>
+            <div class="card-expansivo mt-5">
+                <div class="row">
+                  <div class="col-4">
+                    <img src="https://envato-shoebox-0.imgix.net/2475/9940-cad8-4485-ab2f-26b044e29ccd/IMG_2278.jpg?auto=compress%2Cformat&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&w=700&fit=max&markalign=center%2Cmiddle&markalpha=18&s=ffb038929cab41ea837698feb0e582ca" width="90%">
+                  </div>
+                  <div class="col-7">
+                    <h3 *ngIf="nome">{{nome}}</h3>
+                    <h3 *ngIf="!nome">NOME RESTAURANTE</h3>
+                    <p *ngIf="descricao">{{descricao}}</p>
+                    <p *ngIf="!descricao">Aqui estará uma breve descrição do seu restaurante!</p>
+                  </div>
+                  <div class="col-1">
+                    <i class="bi bi-heart mb-3"></i>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 mb-2 mt-3">
+                    <i class="bi bi-geo-alt-fill c-primary me-2"></i><span *ngIf="endereco">{{endereco}}</span>
+                    <span *ngIf="!endereco">Endereço do Restaurante</span>
+                  </div>
+                  <div class="col-12 mb-2">
+                    <i class="bi bi-telephone-fill c-primary me-2"></i><span *ngIf="telefone">{{telefone}}</span>
+                    <span *ngIf="!telefone">Telefone do Restaurante</span>
+                  </div>
+                  <div class="col-12 mb-3">
+                    <i class="bi bi-instagram c-primary me-2"></i><span *ngIf="instagram">{{instagram}}</span>
+                    <span *ngIf="!instagram">Instagram do Restaurante</span>
+                  </div>
+                  <div class="col-12">
+                    <p>FALTOU VERIFICAR PARTE DE CATEGORIAS E IMAGEM</p>
+                    <button class="botao-categoria" *ngIf="categoria">{{categoria}}</button>
+                    <button class="botao-categoria" *ngIf="!categoria">Categoria</button>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
