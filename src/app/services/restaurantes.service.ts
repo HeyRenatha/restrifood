@@ -15,4 +15,9 @@ export class RestaurantesService {
     return this.dataBaseStore.collection('restaurantes', restaurante => restaurante.orderBy('nome')).valueChanges({idField: 'id'})
   }
 
+  // Envio do restaurante para a tabela de Aprovações (aqui não será adicionado de cara na tabela oficial de restaurantes)
+  cadastrarRestaurante(restaurante: any) {
+    return this.dataBaseStore.collection('aprovacoes').add(restaurante);
+  }
+
 }

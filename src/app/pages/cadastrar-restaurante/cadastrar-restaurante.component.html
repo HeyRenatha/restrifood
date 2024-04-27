@@ -6,9 +6,11 @@
             <div class="container-form-cadastro mt-5 mt-sm-o px-sm-5">
                 <h3 class="titulo-pagina">CADASTRAR RESTAURANTE</h3>
                 <label class="form-label">LINK IMAGEM</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" [(ngModel)]="srcRestaurante">
                 <label class="form-label">NOME</label>
                     <input type="text" class="form-control" [(ngModel)]="nome">
+                <label class="form-label">CNPJ</label>
+                    <input type="text" class="form-control" [(ngModel)]="cnpj">
                 <label class="form-label">DESCRIÇÃO</label>
                     <textarea class="form-control" rows="3" maxlength="112" [(ngModel)]="descricao"></textarea>
                 <label class="form-label">ENDEREÇO</label>
@@ -17,13 +19,22 @@
                     <input type="string" class="form-control" [(ngModel)]="telefone">
                 <label class="form-label">INSTAGRAM</label>
                     <input type="text" class="form-control" [(ngModel)]="instagram">
-                <label class="form-label">CATEGORIA</label>
-                    <input type="text" class="form-control" [(ngModel)]="categoria">
+                <label class="form-label">CATEGORIA (seleciona multiplos com CTRL + click)</label>
+                  <select [(ngModel)]="categorias" class="form-select form-select-sm input-restrichef" multiple>
+                    <option value="" selected disabled>Selecione a Restrição:</option>
+                    <option value="vegana">Vegano</option>
+                    <option value="vegetariana">Vegetariano</option>
+                    <option value="fitness">Fitness</option>
+                    <option value="sem açúcar">Sem Açúcar</option>
+                    <option value="sem lactose">Sem Lactose</option>
+                    <option value="sem glúten">Sem Glúten</option>
+                  </select>
                 <div class="text-end mt-3">
-                    <app-button textButton="PRONTO"></app-button>
+                    <app-button textButton="PRONTO" (click)="enviarRestauranteParaAprovacao()"></app-button>
                 </div>
             </div>
         </div>
+        <!-- PARTE DIREITO CARD EXEMPLO -->
         <div class="col-12 col-lg-6 mt-5">
             <div>
                 <h3 class="titulo-pagina mt-5">
@@ -33,7 +44,8 @@
             <div class="card-expansivo mt-5">
                 <div class="row">
                   <div class="col-4">
-                    <img src="https://envato-shoebox-0.imgix.net/2475/9940-cad8-4485-ab2f-26b044e29ccd/IMG_2278.jpg?auto=compress%2Cformat&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&w=700&fit=max&markalign=center%2Cmiddle&markalpha=18&s=ffb038929cab41ea837698feb0e582ca" width="90%">
+                    <img *ngIf="srcRestaurante" [src]="srcRestaurante" width="90%">
+                    <img *ngIf="!srcRestaurante" src="https://envato-shoebox-0.imgix.net/2475/9940-cad8-4485-ab2f-26b044e29ccd/IMG_2278.jpg?auto=compress%2Cformat&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&w=700&fit=max&markalign=center%2Cmiddle&markalpha=18&s=ffb038929cab41ea837698feb0e582ca" width="90%">
                   </div>
                   <div class="col-7">
                     <h3 *ngIf="nome">{{nome}}</h3>
@@ -59,11 +71,22 @@
                     <span *ngIf="!instagram">Instagram do Restaurante</span>
                   </div>
                   <div class="col-12">
-                    <p>FALTOU VERIFICAR PARTE DE CATEGORIAS E IMAGEM</p>
-                    <button class="botao-categoria" *ngIf="categoria">{{categoria}}</button>
-                    <button class="botao-categoria" *ngIf="!categoria">Categoria</button>
+                    <div *ngIf="categorias">
+                      <button class="botao-categoria ml-3" *ngFor="let categoria of categorias">{{categoria}}</button>
+                    </div>
+                    <button class="botao-categoria" *ngIf="!categorias">Categoria</button>
                   </div>
                 </div>
+              </div>
+
+              <div class="card-expansivo mt-3" *ngIf="restauranteEnviado">
+                <h3 class="sucesso">Restaurante enviado com sucesso!</h3>
+                <p>Seu restaurante foi enviado para nosso sistema. Iremos analisar os dados para adicionar seu restaurante a nossa lista. Assim que ele for adicionar irá aparecer na página principal de restaurantes.</p>
+              </div>
+
+              <div class="card-expansivo mt-3" *ngIf="erroRestauranteEnviado">
+                <h3 class="erro">Ocorreu um erro!</h3>
+                <p>Ocorreu um erro ao tentar salvar o restaurante, por favor tente novamente ou mais tarde.</p>
               </div>
         </div>
     </div>

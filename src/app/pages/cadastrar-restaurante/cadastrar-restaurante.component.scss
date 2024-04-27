@@ -26,6 +26,12 @@ input, textarea {
         color: var(--primary-color);
         font-size: 22px;
     }
+    .sucesso{
+        color: var(--success-color)
+    }
+    .erro{
+        color: var(--error-color)
+    }
     p{
         color: #625D5D;
     }

@@ -4,8 +4,8 @@
         <div class="row">
             <div class="col-12 col-lg-2 mt-3">
                 <div class="centralizado">
-                    <h2  class="titulo-aba">
-                        <i class="bi bi-chevron-left"></i> DESCOBRIR</h2>
+                    <h2 routerLink="/home" class="titulo-aba">
+                        <i routerLink="/home" class="bi bi-chevron-left"></i> DESCOBRIR</h2>
                 </div>
             </div>
             <div class="col-9 col-lg-8 pb-3">
@@ -17,5 +17,57 @@
             </div>
         </div>
     </div>
+</div>
+<div class="container">
+    <div class="row mb-5" *ngIf="listRestaurantes?.length">
+        <div class="col-12 col-md-6" *ngFor="let restaurante of listRestaurantes; let i = index">
+          <!-- CARD RESTAURANTE -->
+            <div class="card-expansivo" >
+              <div class="row">
+                <div class="col-4">
+                  <img [src]="restaurante.imagem" onerror="this.src='../../../assets/img/erro.png'" width="90%" (click)="abreFechaCard(i)">
+                </div>
+                <div class="col-7" (click)="abreFechaCard(i)">
+                  <h3>{{restaurante.nome}}</h3>
+                  <p>{{restaurante.descricao}}</p>
+                </div>
+                <div class="col-1">
+                  <i class="bi bi-heart mb-3 icone-coracao" [id]="restaurante.instagram" (click)="salvarFavoritos(restaurante, restaurante.instagram)"></i>
+                  <i class="bi bi-chevron-down icone-setinha" [id]="'setinha'+i" (click)="abreFechaCard(i)"></i>
+                </div>
+              </div>
+              <div class="row d-none" [id]="i" (click)="abreFechaCard(i)">
+                <div class="col-12 mb-2 mt-3">
+                  <i class="bi bi-geo-alt-fill c-primary me-2"></i><span>{{restaurante.endereco}}</span>
+                </div>
+                <div class="col-12 mb-2">
+                  <i class="bi bi-telephone-fill c-primary me-2"></i><span>{{restaurante.telefone}}</span>
+                </div>
+                <div class="col-12 mb-3">
+                  <i class="bi bi-instagram c-primary me-2"></i><span>{{restaurante.instagram}}</span>
+                </div>
+                <div class="col-12">
+                  <button class="botao-categoria" *ngFor="let categoria of restaurante.categoria">{{categoria | uppercase}}</button>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+      <!-- QUANDO NÃO TEM RESTAURANTES (sejam cadastrados, ou sejam filtrados) -->
+      <div class="row mb-5" *ngIf="!listRestaurantes?.length">
+        <div class="col-12 col-md-6">
+          <div class="card-expansivo">
+            <div class="row">
+              <div class="col-4">
+                <img src='../../../assets/img/erro.png' width="90%">
+              </div>
+              <div class="col-8">
+                <h3>Sem restaurantes cadastrados</h3>
+                <p>Por favor selecione outro estado para a pesquisa, pois não encontramos restaurantes cadastrados neste estado para a categoria: {{categoria}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 </div>
 <app-footer></app-footer>
