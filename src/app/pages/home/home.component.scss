@@ -7,10 +7,26 @@
 }
 
 .header-home-background {
-    background-color: pink;
     background-image: url("../../../assets/img/header.png");
     background-position: center;
+    background-color: var(--primary-color);
+    opacity: 1;
+    animation: fadeIn 0.5s linear;
 }
+
+.header-home-ia-background {
+    background-image: url("../../../assets/img/headerIA.png");
+    background-position: center;
+    background-color: var(--primary-color);
+    opacity: 1;
+    animation: fadeIn 0.5s linear;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0 }
+    50% { opacity: 0.5 }
+    100% { opacity: 1 }
+  }
 
 .texto-header-home {
     h1{
@@ -34,14 +50,9 @@
     max-width: 180px;
     margin-left: 100px;
 }
-// NO MOBILE NÃO TERÁ MARGIN LEFT E A IMAGEM VAI OCUPAR 100% SEM MARGIN
-
-// MEDIA QUERIE PARA AJUSTE NO MOBILE
+// Ajustes mobile
 @media (max-width: 767px) {
-    .texto-header-home{
-        margin-left: 0px;
-        padding: 40px 0px;
-    }
+    .texto-header-home{ margin-left: 0px; padding: 40px 0px; }
 
     .menina-hamburguer {
         position: absolute;
@@ -51,9 +62,7 @@
 }
 
 @media (max-width: 905px) {
-    .menina-hamburguer {
-        margin-left: 0px;
-    }
+    .menina-hamburguer { margin-left: 0px; }
 }
 
 .cards-filtro {
@@ -74,17 +83,13 @@
     }
 }
 
-.imagem-card {
-    width: 100%;
-    max-width: 90px;
-}
+.imagem-card { width: 100%; max-width: 90px; }
 
 .card-restrichef{
     border-radius: 20px;
     border: 1px solid #0a0a0a40;
     text-align: center;
     padding: 30px;
-    //max-width: 130px;
     width: 90%;
     margin: 0 auto;
     margin-top: 50px;
@@ -94,15 +99,10 @@
         cursor: pointer;
         box-shadow: 0px 0px 5px 2px #0a0a0a40;
     }
-    p {
-        font-size: 14px;
-    }
+    p { font-size: 14px; }
 }
 
-.titulo-restrichef {
-    font-size: 20px;
-    color: var( --primary-color);
-}
+.titulo-restrichef { font-size: 20px; color: var( --primary-color); }
 
 .botao-branco-gerador {
     outline: none;
@@ -116,12 +116,26 @@
 }
 
 @media (max-width: 460px) {
-    .imagem-card {
-        width: 100%;
-        max-width: 70px;
-    }
+    .imagem-card { width: 100%; max-width: 70px; }
 }
 
-p{
-    color: #625D5D;
+p{ color: #625D5D; }
+
+// SLIDE
+.seta-esquerda-slide{
+    color: #a5a5a5;
+    font-size: 30px;
+    position: absolute;
+    left: 30px;
+    top: 200px;
+    cursor: pointer;
+}
+
+.seta-direita-slide{
+    color: #a5a5a5;
+    font-size: 30px;
+    position: absolute;
+    right: 30px;
+    top: 200px;
+    cursor: pointer;
 }

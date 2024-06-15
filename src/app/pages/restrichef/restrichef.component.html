@@ -5,13 +5,13 @@
             <div class="col-12 col-md-3 text-end pt-5 pe-4 d-none d-lg-block">
                 <img class="imagem-restrichef" src="../../../assets/img/menina-compras.png" alt="">
             </div> 
-            <div class="col-12 col-lg-7 p-4">
+            <div class="col-12 col-lg-7 pt-1 px-4">
                 <h1 class="titulo-restrichef"><i class="bi bi-robot c-primary"></i> RestriChef - Gerador de Receitas</h1>
                 <p class="introducao">RestriChef é o seu gerador de receitas com IA!<br>
                 Aqui você pode solicitar uma receita com os ingredientes desejados, selecionando a sua restrição e o RestriChef gera uma receita especial para você!</p>
                 <input [(ngModel)]="pesquisaUsuario" class="input-restrichef" type="text" placeholder="Digite os ingredientes que você deseja">
                 <div class="row">
-                    <div class="col-6 pt-2">
+                    <!-- <div class="col-6 pt-2">
                         <select [(ngModel)]="restricaoUsuario" class="form-select form-select-sm input-restrichef" aria-label="Small select example">
                             <option value="" selected>Selecione a Restrição:</option>
                             <option value="vegana">Vegano</option>
@@ -21,9 +21,36 @@
                             <option value="sem lactose">Sem Lactose</option>
                             <option value="sem glúten">Sem Glúten</option>
                           </select>
+                    </div> -->
+                    <div class="col-12 col-md-9 pt-2">
+                        <div class="form-check form-check-inline mt-2">
+                            <input class="form-check-input" type="checkbox" id="vegano" value="vegano" name="restricoes">
+                            <label class="form-check-label" for="vegano">Vegano</label>
+                        </div>
+                        <div class="form-check form-check-inline mt-2">
+                            <input class="form-check-input" type="checkbox" id="vegetariano" value="vegetariano" name="restricoes">
+                            <label class="form-check-label" for="vegetariano">Vegetariano</label>
+                        </div>
+                        <div class="form-check form-check-inline mt-2">
+                            <input class="form-check-input" type="checkbox" id="fitness" value="fitness" name="restricoes">
+                            <label class="form-check-label" for="fitness">Fitness</label>
+                        </div>
+                        <br>
+                        <div class="form-check form-check-inline mt-2">
+                            <input class="form-check-input" type="checkbox" id="semAcucar" value="sem açúcar" name="restricoes">
+                            <label class="form-check-label" for="semAcucar">Sem Açúcar</label>
+                        </div>
+                        <div class="form-check form-check-inline mt-2">
+                            <input class="form-check-input" type="checkbox" id="semLactose" value="sem lactose" name="restricoes">
+                            <label class="form-check-label" for="semLactose">Sem Lactose</label>
+                        </div>
+                        <div class="form-check form-check-inline mt-2">
+                            <input class="form-check-input" type="checkbox" id="semGluten" value="sem glúten" name="restricoes">
+                            <label class="form-check-label" for="semGluten">Sem Glúten</label>
+                        </div>
                     </div>
-                    <div class="col-6 text-end pt-2">
-                        <app-button textButton="BUSCAR" [desabilitar]="pesquisaUsuario && restricaoUsuario" (click)="runChat()"></app-button>
+                    <div class="col-12 col-md-3 text-end pt-2">
+                        <app-button textButton="BUSCAR" [desabilitar]="pesquisaUsuario" (click)="runChat()"></app-button>
                     </div>
 
                     <div class="col-12" *ngIf="carregando === true">

@@ -1,15 +1,20 @@
 
 label {
-    color: #534F4F;
+    color: #464646;
     font-weight: 100;
     margin-bottom: 0px;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 input, textarea {
     margin-bottom: 10px;
     box-shadow: 0px 1px 2px 1px #0a0a0a10;
     border-radius: 8px;
+}
+
+i {
+    font-size: 20px;
+    cursor: pointer;
 }
 
 .card-expansivo {

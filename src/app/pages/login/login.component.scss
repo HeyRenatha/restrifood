@@ -1,7 +1,7 @@
 .background-desk {
     background-color: #FFBEAA;
     display: block;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     padding: 20px;
 }
@@ -54,7 +54,7 @@ input {
 }
 
 .mensagem-erro{
-    margin: 6px 0px 18px 0px;
+    margin: 6px 0px 14px 0px;
     text-shadow: 1px 1px 0px red;
 }
 

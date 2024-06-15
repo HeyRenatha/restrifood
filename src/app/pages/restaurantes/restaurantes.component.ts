@@ -32,8 +32,15 @@ export class RestaurantesComponent {
   getListRestaurantes (){
     this.restaurantesService.getAllRestaurantes().subscribe({
       next:(response: any) => {
-        this.listRestaurantes = response;
-        this.listRestaurantesBackup = response;
+
+        // Filtrar categorias dos restaurantes
+        this.listRestaurantes = response.filter((restaurante: any) => {
+          if(restaurante.categoria.includes(this.categoria)) {
+            return restaurante;
+          }
+        });
+
+        this.listRestaurantesBackup = this.listRestaurantes;
         
         setTimeout(() => {
           this.verificaFavoritoLista();

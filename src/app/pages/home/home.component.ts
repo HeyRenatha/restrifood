@@ -10,10 +10,24 @@ import { take } from 'rxjs';
 })
 export class HomeComponent {
 
+  intervaloSlideIa: any;
+  slideHeaderIA: boolean = true;
+
   constructor(private router: Router, private restaurantesService: RestaurantesService){
   }
 
   ngOnInit() {
+    this.defineSlideHeaderIntervalo();
+  }
+
+  defineSlideHeaderIntervalo() {
+    this.intervaloSlideIa = setInterval(() => { this.slideHeaderIA = !this.slideHeaderIA }, 10000);
+  }
+
+  trocaSlideHeader() {
+    clearInterval(this.intervaloSlideIa);
+    this.slideHeaderIA = !this.slideHeaderIA;
+    this.defineSlideHeaderIntervalo();
   }
 
   redirecionaRestaurante(categoria: string){

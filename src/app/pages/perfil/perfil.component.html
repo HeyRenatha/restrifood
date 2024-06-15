@@ -9,7 +9,19 @@
                         <img class="imagem-card" src="https://api.dicebear.com/7.x/bottts/svg?seed={{nickUser}}" alt="">
                     </div>
                     <div class="col-3 text-start">
-                        <p class="apelido">{{nickUser}} <i class="bi bi-pencil-square c-primary"></i></p>
+                        <p class="apelido" *ngIf="!editUser">{{nickUser}} <i class="bi bi-pencil-square c-primary hover" (click)="editUser = true"></i></p>
+                        <div class="row" *ngIf="editUser">
+                            <div class="col-12">
+                                <!-- <input class="form-control" type="text" [(ngModel)]="nickUser" placeholder="Seu nick"> -->
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Seu nome" [(ngModel)]="nickUser" autofocus>
+                                    <button class="btn botao-editar" type="button" (click)="salvarNickUsuario()" [disabled]="!nickUser.length">salvar</button>
+                                  </div>
+                            </div>
+                            <!-- <div class="col-4">
+                                <button class="botao-laranja">salvar</button>
+                            </div> -->
+                        </div>
                         <p class="nome">{{nameUser}}</p>
                         <p class="email">{{emailUser}}</p>
                         <p class="telefone">{{telefoneUser}}</p>
@@ -20,7 +32,8 @@
                     </div>
                     <div class="col-3 pt-5">
                         <i class="bi bi-heart-fill c-primary"></i>
-                        <p>0</p>
+                        <p *ngIf="listaFavoritos">{{listaFavoritos.length}}</p>
+                        <p *ngIf="!listaFavoritos">0</p>
                     </div>
                 </div>
             </div>
@@ -39,7 +52,7 @@
             </div>
         </div>
     </div>
-    <div class="row ">
+    <div class="row" *ngIf="!listaFavoritos?.length">
         <div class="col-12">
             <h3 class="titulo-favoritos">Seus favoritos mais recentes! <i class="bi bi-plus-circle-fill c-primary"></i></h3>
         </div>
@@ -58,6 +71,46 @@
             </div>
         </div>
     </div>
+
+    <!-- CARD DE FAVORITOS -->
+    <div class="row mb-5" *ngIf="listaFavoritos?.length">
+        <div class="col-12">
+            <h3 class="titulo-favoritos">Seus favoritos mais recentes! <i class="bi bi-plus-circle-fill c-primary"></i></h3>
+        </div>
+        <div class="col-12 col-md-6" *ngFor="let restaurante of listaFavoritos; let i = index">
+          <!-- CARD RESTAURANTE -->
+            <div class="card-expansivo" >
+              <div class="row">
+                <div class="col-4">
+                  <img [src]="restaurante.imagem" onerror="this.src='../../../assets/img/erro.png'" width="90%" (click)="abreFechaCard(i)">
+                </div>
+                <div class="col-7" (click)="abreFechaCard(i)">
+                  <h3>{{restaurante.nome}}</h3>
+                  <p>{{restaurante.descricao}}</p>
+                </div>
+                <div class="col-1">
+                  <i class="bi bi-heart-fill mb-3 icone-coracao" [id]="restaurante.instagram" (click)="salvarFavoritos(restaurante, restaurante.instagram)"></i>
+                  <i class="bi bi-chevron-down icone-setinha" [id]="'setinha'+i" (click)="abreFechaCard(i)"></i>
+                </div>
+              </div>
+              <div class="row d-none" [id]="i" (click)="abreFechaCard(i)">
+                <div class="col-12 mb-2 mt-3">
+                  <i class="bi bi-geo-alt-fill c-primary me-2"></i><span>{{restaurante.endereco}}</span>
+                </div>
+                <div class="col-12 mb-2">
+                  <i class="bi bi-telephone-fill c-primary me-2"></i><span>{{restaurante.telefone}}</span>
+                </div>
+                <div class="col-12 mb-3">
+                  <i class="bi bi-instagram c-primary me-2"></i><span>{{restaurante.instagram}}</span>
+                </div>
+                <div class="col-12">
+                  <button class="botao-categoria" *ngFor="let categoria of restaurante.categoria">{{categoria | uppercase}}</button>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+
     <div class="text-end mt-4">
         <app-button textButton="SAIR" routerLink="/sair" ></app-button>
     </div>

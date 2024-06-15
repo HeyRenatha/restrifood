@@ -26,8 +26,6 @@ abreFechaCard(index: any) {
     row?.classList.add('d-none');
     setinha?.classList.remove('gira180');
   }
-
-
 }
 
 salvarFavoritos(restaurante: any, idRestaurante: any){

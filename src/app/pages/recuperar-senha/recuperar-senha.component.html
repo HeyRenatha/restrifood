@@ -5,25 +5,30 @@
             <div class="col-12 col-md-7">
                 <div class="d-none d-sm-block">
                     <h1 class="titulo-logo-desk">Restrifood</h1>
-                    <h2 class="subtitulo-logo-desk mb-5">Comida para todos!</h2>
+                    <h2 class="subtitulo-logo-desk mb-4">Comida para todos!</h2>
                 </div>
                 <!-- <i class="bi bi-arrow-left c-primary float-start"></i> -->
-                <i routerLink="/login" class="bi bi-arrow-left-circle-fill c-primary float-start"></i>
-                <div class="container-form-cadastro mt-5 mt-sm-o px-sm-5">
+                <i routerLink="/login" class="bi bi-arrow-left-circle-fill c-primary float-start hover"></i>
+                <form [formGroup]="formRecuperarSenha" class="container-form-cadastro mt-4 mt-sm-o px-sm-5">
                     <h3 class="titulo-pagina">Esqueceu a senha?</h3>
                     <p>Não tem problema, aqui você pode criar uma nova senha!</p>
-                    <label for="cadastro-input" class="form-label">Email para recuperação de senha</label>
-                        <input type="email" class="form-control">
+                    <label for="cadastro-input" class="form-label">Email do seu login</label>
+                        <input type="email" class="form-control" formControlName="email">
                     <label for="cadastro-input" class="form-label">Digite a nova senha</label>
-                        <input type="password" class="form-control">
+                        <input type="password" class="form-control" formControlName="senha">
                     <label for="cadastro-input" class="form-label">Mais uma vez</label>
-                        <input type="password" class="form-control">
+                        <input type="password" class="form-control" formControlName="senhaNovamente">
                         <span>A senha deve conter 8 dígitos.</span>
                     <div class="text-end mt-2">
-                        <app-button textButton="PRONTO"></app-button>
+                        <app-button textButton="PRONTO" [desabilitar]="formRecuperarSenha.valid" (click)="cadastrarUsuario()"></app-button>
                     </div>
-                </div>
-
+                    <div class="card-senha-alterada" *ngIf="showCardSenhaAlterada">
+                        <p>Senha alterada com sucesso. Você será redirecionado(a) para a tela de Login!</p>
+                    </div>
+                    <div class="card-erro" *ngIf="showCardErro">
+                        <p>Por favor verifique se você já possui cadastro ou se digitou o e-mail correto.</p>
+                    </div>
+                </form>
             </div>
 
             <div class="col-1"></div>

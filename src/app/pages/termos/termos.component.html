@@ -8,7 +8,7 @@
                     <h2 class="subtitulo-logo-desk mb-5">Comida para todos!</h2>
                 </div>
                 <!-- <i class="bi bi-arrow-left c-primary float-start"></i> -->
-                <i routerLink="/login" class="bi bi-arrow-left-circle-fill c-primary float-start"></i>
+                <i routerLink="/login" class="bi bi-arrow-left-circle-fill c-primary float-start hover"></i>
                 <div class="container-form-cadastro mt-5 mt-sm-o px-sm-5">
                     <h3 class="titulo-pagina">TERMOS E CONDIÇÕES</h3>
                     <div class="container-scroll-termos">
@@ -36,6 +36,9 @@
                         <label class="form-check-label" for="flexCheckDefault">
                           Li e aceito os termos e condições de uso.
                         </label>
+                        <div class="mt-3 text-end d-none d-lg-block">
+                            <app-button routerLink="/home" textButton="PRONTO" [desabilitar]="termoAceito"></app-button>
+                        </div>
                     </div>
                     <div class="d-block d-lg-none text-end mt-3">
                         <app-button routerLink="/home" textButton="PRONTO" [desabilitar]="termoAceito"></app-button>
@@ -49,7 +52,7 @@
             <div class="col-5 text-center d-none d-lg-block">
                 <img class="imagem-termos" src="../../../assets/img/menina-lapis1.png" alt="">
                 <br>
-                <app-button routerLink="/home" textButton="PRONTO" [desabilitar]="termoAceito"></app-button>
+                <!-- <app-button routerLink="/home" textButton="PRONTO" [desabilitar]="termoAceito"></app-button> -->
             </div>
 
         </div>

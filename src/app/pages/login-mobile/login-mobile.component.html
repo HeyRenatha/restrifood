@@ -6,16 +6,25 @@
                 <i routerLink="/login" class="bi bi-arrow-left-circle-fill c-primary float-start"></i>
                 <img class="imagem-login" src="../../../assets/img/menina-login.png" alt="">
                 <div class="container-login">
-                    <div class="col-12 container-form">
+                    <form [formGroup]="formLogin" class="col-12 container-form">
                         <label for="login-input" class="form-label">EMAIL</label>
-                            <input type="email" class="form-control">
+                            <input type="email" formControlName="email" class="form-control">
+                            @if (formLogin.controls['email'].invalid && formLogin.get('email')?.touched) {
+                                <label class="mensagem-erro">Por favor digite um e-mail válido</label>
+                            }
                         <label for="login-input" class="form-label">SENHA</label>
-                            <input type="password" class="form-control">
+                            <input type="password" formControlName="senha" class="form-control">
+                            @if (formLogin.controls['senha'].invalid && formLogin.get('senha')?.touched) {
+                                <label class="mensagem-erro">Por favor digite uma senha válida</label>
+                            }
+                            @if (showErroUsuarioSenha) {
+                                <label class="mensagem-erro">Usuário e/ou senha inválidos</label>
+                            }
                             <div class="text-center mt-4">
-                                <button routerLink="/termos" class="botao-branco">ENTRAR</button>
+                                <button (click)="login()" class="botao-branco">ENTRAR</button>
                                 <p routerLink="/cadastro" class="link-cadastrar hover">CADASTRAR</p>
                             </div>    
-                    </div>
+                    </form>
                 </div>
                 <div class="esqueceu-senha text-center mb-5">
                     <p routerLink="/recuperar" class="hover">Opa! Esqueceu a Senha?</p>

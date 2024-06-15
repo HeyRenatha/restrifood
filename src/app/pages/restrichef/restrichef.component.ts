@@ -14,11 +14,13 @@ export class RestrichefComponent {
   API_KEY = environment.apiKey;
   pesquisaUsuario: string = '';
   restricaoUsuario: string = '';
+  restricoesSelecionadas: string;
 
   receitaGerada: string;
   carregando: boolean = false;
 
   async runChat() {
+    this.capturaRestricoesSelecionadas();
     let divReceita: any = document.getElementById('respostaReceita');
     divReceita.innerHTML = '';
 
@@ -58,13 +60,22 @@ export class RestrichefComponent {
     });
   
     const configuracoesExtras = '. Sempre gere em modo HTML, porém iniciando pelo H1 (não precisa de toda estrutura do HTML, sendo ingredientes com ul e li e modo de preparo com ol e li) e retorne Ingredientes e Modo de preparo'
-    const result = await chat.sendMessage('Gere uma receita ' + this.restricaoUsuario + ' com: ' + this.pesquisaUsuario + configuracoesExtras);
+    const result = await chat.sendMessage('Gere uma receita ' + this.restricoesSelecionadas + 'de: ' + this.pesquisaUsuario + configuracoesExtras);
     const response = result.response;
 
     console.log(response.text());
     this.carregando = false;
     divReceita.innerHTML = response.text();
     // Gere uma receita sem glúten com ovo, açúcar e farinha. Sempre gere em modo HTML, porém iniciando pelo H1 (não precisa de toda estrutura do HTML)
+  }
+
+  capturaRestricoesSelecionadas() {
+    this.restricoesSelecionadas = '';
+    const restricoes = <NodeList>document.querySelectorAll('[type="checkbox"]:checked');
+    
+    restricoes.forEach((restricao: any) => {
+      this.restricoesSelecionadas = this.restricoesSelecionadas + restricao.defaultValue + ' e '
+    });
   }
 
 }

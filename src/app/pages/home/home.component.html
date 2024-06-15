@@ -1,21 +1,43 @@
     <app-navbar></app-navbar>
-      <div class="header-home-background">
+    <!-- SLIDE 1 -->
+      <div class="header-home-background" *ngIf="slideHeaderIA === false">
+        <i class="bi bi-caret-left-fill seta-esquerda-slide d-none d-md-block" (click)="trocaSlideHeader()"></i>
+        <i class="bi bi-caret-right-fill seta-direita-slide d-none d-md-block" (click)="trocaSlideHeader()"></i>
         <div class="container">
             <div class="row">
-                <div class="col-sm-8 col-md-8 col-lg-6">
+                <div class="col-sm-8 col-md-8 col-lg-7">
                     <div class="texto-header-home">
                         <h1>OPÇÕES IRRESISTÍVEIS PARA VOCÊ!</h1>
-                        <p>"Descubra uma nova forma de saborear a saúde: Encontre os melhores restaurantes perto de você!</p>
+                        <p>"Descubra uma nova forma de saborear a saúde: Encontre os melhores restaurantes perto de você!<br>E tenha todos na palma de sua mão!</p>
                         <app-button routerLink="/descobrir" textButton="DESCOBRIR"></app-button>
                     </div>
                 </div>
-                <div class="col-1 d-none d-lg-block"></div>
                 <div class="col-3 col-sm-4 col-md-4 col-lg-5 py-4 d-none d-sm-block">
                     <img class="menina-hamburguer" src="../../../assets/img/menina-hamburguer.png" alt="">
                 </div>
             </div>
         </div>
     </div>
+    <!-- SLIDE 2 -->
+    <div class="header-home-ia-background" *ngIf="slideHeaderIA === true">
+      <i class="bi bi-caret-left-fill seta-esquerda-slide d-none d-md-block" (click)="trocaSlideHeader()"></i>
+      <i class="bi bi-caret-right-fill seta-direita-slide d-none d-md-block" (click)="trocaSlideHeader()"></i>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-md-8 col-lg-7">
+              <div class="texto-header-home">
+                  <h1><i class="bi bi-robot"></i> GERADOR DE RECEITAS com I.A.</h1>
+                  <p>"Já pensou em Gerar uma Receita exclusiva com os ingredientes que tem em casa?<br>Ou encontrar a receita perfeita daquele prato que você está com vontade!"</p>
+                  <button class="botao-branco-gerador" routerLink="/restrichef">Quero uma Receita  <i class="bi bi-robot"></i></button>
+              </div>
+          </div>
+          <div class="col-3 col-sm-4 col-md-4 col-lg-5 py-4 d-none d-sm-block">
+              <img class="menina-hamburguer mt-2" src="../../../assets/img/buscando-receita.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- AQUI COMEÇA OS CARD DA HOME DAS CATEGORIAS -->
     <div class="container pb-5">
       <!-- <div class="row">
         <div class="col-5 mb-3 mt-3">

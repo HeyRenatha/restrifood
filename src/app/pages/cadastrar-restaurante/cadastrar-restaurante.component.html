@@ -2,33 +2,57 @@
 <div class="container">
     <div class="row">
         <div class="col-12 col-lg-6 mt-5">
-            <i class="bi bi-arrow-left c-primary float-start"></i>
+          <i routerLink="/home" class="bi bi-arrow-left-circle-fill c-primary float-start"></i>
             <div class="container-form-cadastro mt-5 mt-sm-o px-sm-5">
                 <h3 class="titulo-pagina">CADASTRAR RESTAURANTE</h3>
-                <label class="form-label">LINK IMAGEM</label>
+                <label class="form-label">Link da imagem</label>
                     <input type="text" class="form-control" [(ngModel)]="srcRestaurante">
-                <label class="form-label">NOME</label>
+                <label class="form-label">Nome</label>
                     <input type="text" class="form-control" [(ngModel)]="nome">
                 <label class="form-label">CNPJ</label>
                     <input type="text" class="form-control" [(ngModel)]="cnpj">
-                <label class="form-label">DESCRIÇÃO</label>
+                <label class="form-label">Descrição</label>
                     <textarea class="form-control" rows="3" maxlength="112" [(ngModel)]="descricao"></textarea>
-                <label class="form-label">ENDEREÇO</label>
+                <label class="form-label">Endereço</label>
                     <input type="text" class="form-control" [(ngModel)]="endereco">
-                <label class="form-label">TELEFONE</label>
+                <label class="form-label">Telefone</label>
                     <input type="string" class="form-control" [(ngModel)]="telefone">
-                <label class="form-label">INSTAGRAM</label>
+                <label class="form-label">Instagram</label>
                     <input type="text" class="form-control" [(ngModel)]="instagram">
-                <label class="form-label">CATEGORIA (seleciona multiplos com CTRL + click)</label>
+                <!-- <label class="form-label">CATEGORIA (seleciona multiplos com CTRL + click)</label>
                   <select [(ngModel)]="categorias" class="form-select form-select-sm input-restrichef" multiple>
                     <option value="" selected disabled>Selecione a Restrição:</option>
-                    <option value="vegana">Vegano</option>
-                    <option value="vegetariana">Vegetariano</option>
-                    <option value="fitness">Fitness</option>
-                    <option value="sem açúcar">Sem Açúcar</option>
-                    <option value="sem lactose">Sem Lactose</option>
-                    <option value="sem glúten">Sem Glúten</option>
-                  </select>
+                    <option value="VEGANO">Vegano</option>
+                    <option value="VEGETARIANO">Vegetariano</option>
+                    <option value="FITNESS">Fitness</option>
+                    <option value="SEM AÇÚCAR">Sem Açúcar</option>
+                    <option value="SEM LACTOSE">Sem Lactose</option>
+                    <option value="SEM GLÚTEN">Sem Glúten</option>
+                  </select> -->
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" id="vegana" value="VEGANO" name="restricoes" (click)="capturaRestricoesSelecionadas()">
+                        <label class="form-check-label" for="vegana">Vegano</label>
+                    </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" id="vegetariana" value="VEGETARIANO" name="restricoes" (click)="capturaRestricoesSelecionadas()">
+                        <label class="form-check-label" for="vegetariana">Vegetariano</label>
+                    </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" id="fitness" value="FITNESS" name="restricoes" (click)="capturaRestricoesSelecionadas()">
+                        <label class="form-check-label" for="fitness">Fitness</label>
+                    </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" id="semAcucar" value="SEM AÇÚCAR" name="restricoes" (click)="capturaRestricoesSelecionadas()">
+                        <label class="form-check-label" for="semAcucar">Sem Açúcar</label>
+                    </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" id="semLactose" value="SEM LACTOSE" name="restricoes" (click)="capturaRestricoesSelecionadas()">
+                        <label class="form-check-label" for="semLactose">Sem Lactose</label>
+                    </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" id="semGluten" value="SEM GLÚTEN" name="restricoes" (click)="capturaRestricoesSelecionadas()">
+                        <label class="form-check-label" for="semGluten">Sem Glúten</label>
+                    </div>
                 <div class="text-end mt-3">
                     <app-button textButton="PRONTO" (click)="enviarRestauranteParaAprovacao()"></app-button>
                 </div>
@@ -38,7 +62,7 @@
         <div class="col-12 col-lg-6 mt-5">
             <div>
                 <h3 class="titulo-pagina mt-5">
-                    VIZUALIZAÇÃO DO CARD
+                    Veja como seu Restaurante vai aparcer:
                 </h3>
             </div>
             <div class="card-expansivo mt-5">
@@ -71,16 +95,16 @@
                     <span *ngIf="!instagram">Instagram do Restaurante</span>
                   </div>
                   <div class="col-12">
-                    <div *ngIf="categorias">
-                      <button class="botao-categoria ml-3" *ngFor="let categoria of categorias">{{categoria}}</button>
+                    <div *ngIf="restricoesSelecionadas">
+                      <button class="botao-categoria ml-3 mb-3" *ngFor="let restricao of restricoesSelecionadas">{{restricao}}</button>
                     </div>
-                    <button class="botao-categoria" *ngIf="!categorias">Categoria</button>
+                    <button class="botao-categoria" *ngIf="!restricoesSelecionadas">Categoria</button>
                   </div>
                 </div>
               </div>
 
               <div class="card-expansivo mt-3" *ngIf="restauranteEnviado">
-                <h3 class="sucesso">Restaurante enviado com sucesso!</h3>
+                <h3 class="sucesso">RESTAURANTE ENVIADO COM SUCESSO!</h3>
                 <p>Seu restaurante foi enviado para nosso sistema. Iremos analisar os dados para adicionar seu restaurante a nossa lista. Assim que ele for adicionar irá aparecer na página principal de restaurantes.</p>
               </div>
 

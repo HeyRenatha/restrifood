@@ -29,9 +29,11 @@
                         @if (formLogin.controls['senha'].invalid && formLogin.get('senha')?.touched) {
                             <label class="mensagem-erro">Por favor digite uma senha válida</label>
                         }
-                        <br>
+                        @if (showErroUsuarioSenha) {
+                            <label class="mensagem-erro">Usuário e/ou senha inválidos</label>
+                        }
                         <div class="text-center mt-4">
-                            <button routerLink="/termos" class="botao-branco" [disabled]="!formLogin.valid">ENTRAR</button>
+                            <button class="botao-branco" (click)="login()" [disabled]="!formLogin.valid">ENTRAR</button>
                             <p routerLink="/cadastro" class="link-cadastrar hover">CADASTRAR</p>
                         </div>    
                     </form>

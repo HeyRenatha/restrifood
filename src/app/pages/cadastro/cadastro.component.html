@@ -9,23 +9,27 @@
                 </div>
                 <!-- <i class="bi bi-arrow-left c-primary float-start"></i> -->
                 <i routerLink="/login" class="bi bi-arrow-left-circle-fill c-primary float-start"></i>
-                <div class="container-form-cadastro mt-5 mt-sm-o px-sm-5">
+                <form [formGroup]="formCadastro" class="container-form-cadastro mt-5 mt-sm-o px-sm-5">
                     <h3 class="titulo-pagina">CADASTRAR</h3>
                     <label for="cadastro-input" class="form-label">NOME</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" formControlName="nome">
                     <label for="cadastro-input" class="form-label">APELIDO</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" formControlName="apelido">
                     <label for="cadastro-input" class="form-label">EMAIL</label>
-                        <input type="email" class="form-control">
+                        <input type="email" class="form-control" formControlName="email">
                     <label for="cadastro-input" class="form-label">TELEFONE</label>
-                        <input type="number" class="form-control">
+                        <input type="text" class="form-control" formControlName="telefone">
                     <label for="cadastro-input" class="form-label">SENHA</label>
-                        <input type="password" class="form-control">
+                        <input type="password" class="form-control" formControlName="senha">
                         <span>A senha deve conter 8 dígitos.</span>
-                    <div class="d-block d-lg-none text-end mt-3">
-                        <app-button textButton="PRONTO"></app-button>
+                    <div class="d-block text-end mt-3 mt-md-0">
+                        <app-button (click)="cadastrarUsuario()" textButton="PRONTO" [desabilitar]="formCadastro.valid"></app-button>
+                        
+                        <div class="card-usuario-salvo d-block d-lg-none" *ngIf="showUsuarioSalvo">
+                            <h3>Usuário cadastrado com sucesso. Você será redirecionado para os termos de uso!</h3>
+                        </div>
                     </div>
-                </div>
+                </form>
 
             </div>
 
@@ -34,7 +38,9 @@
             <div class="col-6 text-center d-none d-lg-block">
                 <img class="imagem-cadastro" src="../../../assets/img/menina-donuts.png" alt="">
                 <br>
-                <app-button routerLink="/termos" textButton="PRONTO"></app-button>
+                <div class="card-usuario-salvo d-none d-lg-block" *ngIf="showUsuarioSalvo">
+                    <h3>Usuário cadastrado com sucesso. Você será redirecionado para os termos de uso!</h3>
+                </div>
             </div>
 
         </div>

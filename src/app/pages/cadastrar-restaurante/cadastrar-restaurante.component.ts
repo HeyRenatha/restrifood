@@ -18,10 +18,12 @@ export class CadastrarRestauranteComponent {
   categorias: any;
   restauranteEnviado: boolean = false;
   erroRestauranteEnviado: boolean = false;
+  restricoesSelecionadas: Array<string>;
 
   constructor(private restaurantesService: RestaurantesService){}
 
   enviarRestauranteParaAprovacao() {
+    this.capturaRestricoesSelecionadas();
     this.erroRestauranteEnviado = false;
     this.restauranteEnviado = false;
 
@@ -32,7 +34,7 @@ export class CadastrarRestauranteComponent {
       endereco: this.endereco,
       telefone: this.telefone,
       instagram: this.instagram,
-      categorias: this.categorias,
+      categorias: this.restricoesSelecionadas,
       cnpj: this.cnpj
     };
 
@@ -45,6 +47,17 @@ export class CadastrarRestauranteComponent {
           this.erroRestauranteEnviado = true;
           console.error(err);
     });
+  }
+
+  capturaRestricoesSelecionadas() {
+    this.restricoesSelecionadas = [];
+    const restricoes = <NodeList>document.querySelectorAll('[type="checkbox"]:checked');
+    
+    restricoes.forEach((restricao: any) => {
+      this.restricoesSelecionadas.push(restricao.defaultValue);
+    });
+
+    console.log('RESTRICOES SELECIONADAS: ', this.restricoesSelecionadas);
   }
 
 }

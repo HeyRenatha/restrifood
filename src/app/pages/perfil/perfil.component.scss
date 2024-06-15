@@ -12,6 +12,13 @@
     }
 }
 
+.botao-editar{
+    background: var(--primary-color);
+    color: #fff;
+    font-weight: 400;
+    &:disabled{ opacity: 0.7; }
+}
+
 .imagem-card {
     width: 100%;
     max-width: 150px;
@@ -35,14 +42,9 @@
     margin-bottom: 5px;
 }
 
-.telefone {
-    font-size: 16px;
-    color: #625D5D;
-}
+.telefone { font-size: 16px; color: #625D5D; }
 
-.border-col {
-    border-left: 1px solid var(--primary-color);
-}
+.border-col { border-left: 1px solid var(--primary-color); }
 
 .titulo-favoritos {
     font-size: 20px;
@@ -63,10 +65,7 @@
         margin-top: 55px;
         padding-right: 20px;
     }
-    p {
-        color: #625D5D;
-        font-size: 20px;
-    }
+    p { color: #625D5D; font-size: 20px; }
 }
 
 .card-sem-perfil {
@@ -75,10 +74,7 @@
         font-size: 33px;
         margin-top: 60px;
     }
-    p {
-        color: #625D5D;
-        font-size: 20px;
-    }
+    p { color: #625D5D; font-size: 20px; }
     h3 {
         color: var(--primary-color);
         font-size: 25px;
@@ -88,14 +84,10 @@
     }
 }
 
-.imagem-card-sem-perfil {
-    width: 30%;
-}
+.imagem-card-sem-perfil { width: 30%; }
 
 @media (max-width: 991px) {
-    .imagem-card-sem-perfil, .imagem-sem-favorito {
-        width: 90%;
-    }
+    .imagem-card-sem-perfil, .imagem-sem-favorito { width: 90%; }
 
     .card-sem-perfil h1{ margin-top: 30px; }
 }
@@ -108,16 +100,43 @@
 }
 
 @media (min-width: 768px) {
-    .imagem-card-sem-perfil {
-        width: 40%;
-    }
-    .imagem-sem-favoritos {
-        width: 15%;
-    }
+    .imagem-card-sem-perfil { width: 40%; }
+    .imagem-sem-favoritos {  width: 15%; }
 }
 
 @media (min-width: 1000px) {
-    .imagem-card-sem-perfil {
-        width: 30%;
-    }
+    .imagem-card-sem-perfil { width: 30%; }
 }
+
+// FAVORITOS
+.card-expansivo {
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 1px #0a0a0a40;
+    padding: 16px;
+    min-height: 179px;
+    transition: 0.4s linear all;
+    position: relative;
+    h3{ color: var(--primary-color); font-size: 22px; }
+    p{ color: #625D5D; }
+    span { color: #625D5D; }
+    &:hover{ cursor: pointer; box-shadow: 0px 0px 5px 2px #0a0a0a40; }
+}
+
+.icone-setinha{
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    font-size: 20px;
+    color: var(--primary-color);
+}
+
+.icone-coracao {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: var(--primary-color);
+}
+
+.gira180{ transform: rotate(180deg); }
