@@ -4,8 +4,8 @@
         <div class="row">
             <div class="col-12 col-lg-2 mt-3">
                 <div class="centralizado">
-                    <h2 routerLink="/home" class="titulo-aba">
-                        <i routerLink="/home" class="bi bi-chevron-left"></i> DESCOBRIR</h2>
+                    <h2 routerLink="/home" class="titulo-aba hover">
+                        <i routerLink="/home" class="bi bi-chevron-left hover"></i> DESCOBRIR</h2>
                 </div>
             </div>
             <div class="col-9 col-lg-8 pb-3">
@@ -29,6 +29,8 @@
                 </div>
                 <div class="col-7" (click)="abreFechaCard(i)">
                   <h3>{{restaurante.nome}}</h3>
+                  <small class="avaliacao"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></small>
+                  <small>{{restaurante.custo}}</small>
                   <p>{{restaurante.descricao}}</p>
                 </div>
                 <div class="col-1">
@@ -43,8 +45,10 @@
                 <div class="col-12 mb-2">
                   <i class="bi bi-telephone-fill c-primary me-2"></i><span>{{restaurante.telefone}}</span>
                 </div>
-                <div class="col-12 mb-3">
+                <div class="col-12 mb-2">
                   <i class="bi bi-instagram c-primary me-2"></i><span>{{restaurante.instagram}}</span>
+                </div>
+                <div class="col-12 mb-3">
                 </div>
                 <div class="col-12">
                   <button class="botao-categoria" *ngFor="let categoria of restaurante.categoria">{{categoria | uppercase}}</button>

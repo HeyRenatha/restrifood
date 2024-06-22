@@ -47,6 +47,17 @@
     h3{
         color: var(--primary-color);
         font-size: 22px;
+        margin-bottom: 0;
+    }
+    small{
+        font-size: 12px;
+        font-weight: bold;
+        color: var(--success-color);
+        display: block;
+        margin-bottom: 2px;
+    }
+    .avaliacao{
+        color: rgb(247, 182, 6);
     }
     p{
         color: #625D5D;

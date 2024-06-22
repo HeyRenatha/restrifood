@@ -9,6 +9,8 @@
                     <input type="text" class="form-control" [(ngModel)]="srcRestaurante">
                 <label class="form-label">Nome</label>
                     <input type="text" class="form-control" [(ngModel)]="nome">
+                <label class="form-label">Preço</label>
+                    <input type="text" class="form-control" [(ngModel)]="custo">   
                 <label class="form-label">CNPJ</label>
                     <input type="text" class="form-control" [(ngModel)]="cnpj">
                 <label class="form-label">Descrição</label>
@@ -74,6 +76,8 @@
                   <div class="col-7">
                     <h3 *ngIf="nome">{{nome}}</h3>
                     <h3 *ngIf="!nome">NOME RESTAURANTE</h3>
+                    <p class="custo" *ngIf="custo">{{custo}}</p>
+                    <p class="custo" *ngIf="!custo">$$$</p>
                     <p *ngIf="descricao">{{descricao}}</p>
                     <p *ngIf="!descricao">Aqui estará uma breve descrição do seu restaurante!</p>
                   </div>

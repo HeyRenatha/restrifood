@@ -52,6 +52,7 @@
                     </div>
                     <div class="col-12">
                         <i class="float-end bi bi-clipboard mb-1 c-primary hover" *ngIf="!carregando && respostaApi" (click)="copiarParaClipboard()"></i>
+                        <small class="float-end me-2 c-primary hover" *ngIf="!carregando && respostaApi" (click)="copiarParaClipboard()">Copiar</small>
                         <div [class.input-receita]="carregando === false" id="respostaReceita">
                         </div>
                     </div>

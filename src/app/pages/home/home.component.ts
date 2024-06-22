@@ -11,7 +11,7 @@ import { take } from 'rxjs';
 export class HomeComponent {
 
   intervaloSlideIa: any;
-  slideHeaderIA: boolean = true;
+  slideHeaderIA: boolean = false;
 
   constructor(private router: Router, private restaurantesService: RestaurantesService){
   }

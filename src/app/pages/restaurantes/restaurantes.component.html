@@ -4,18 +4,18 @@
         <div class="row">
             <div class="col-12 col-lg-2 mt-3">
                 <div class="centralizado">
-                    <h2 routerLink="/home" class="titulo-aba" *ngIf="categoria === 'vegano'">
-                    <i routerLink="/home" class="bi bi-chevron-left"></i> VEGANO</h2>
-                    <h2 routerLink="/home" class="titulo-aba" *ngIf="categoria === 'vegetariano'">
-                    <i routerLink="/home" class="bi bi-chevron-left"></i> VEGETARIANO</h2>
-                    <h2 routerLink="/home" class="titulo-aba" *ngIf="categoria === 'fitness'">
-                    <i routerLink="/home" class="bi bi-chevron-left"></i> FIT</h2>
-                    <h2 routerLink="/home" class="titulo-aba" *ngIf="categoria === 'zero açúcar'">
-                    <i routerLink="/home" class="bi bi-chevron-left"></i> ZERO AÇÚCAR</h2>
-                    <h2 routerLink="/home" class="titulo-aba" *ngIf="categoria === 'zero lactose'">
-                    <i routerLink="/home" class="bi bi-chevron-left"></i> ZERO LACTOSE</h2>
-                    <h2 routerLink="/home" class="titulo-aba" *ngIf="categoria === 'zero glúten'">
-                    <i routerLink="/home" class="bi bi-chevron-left"></i> ZERO GLÚTEN</h2>
+                    <h2 routerLink="/home" class="titulo-aba hover" *ngIf="categoria === 'vegano'">
+                    <i routerLink="/home" class="bi bi-chevron-left hover"></i> VEGANO</h2>
+                    <h2 routerLink="/home" class="titulo-aba hover" *ngIf="categoria === 'vegetariano'">
+                    <i routerLink="/home" class="bi bi-chevron-left hover"></i> VEGETARIANO</h2>
+                    <h2 routerLink="/home" class="titulo-aba hover" *ngIf="categoria === 'fitness'">
+                    <i routerLink="/home" class="bi bi-chevron-left hover"></i> FIT</h2>
+                    <h2 routerLink="/home" class="titulo-aba hover" *ngIf="categoria === 'zero açúcar'">
+                    <i routerLink="/home" class="bi bi-chevron-left hover"></i> ZERO AÇÚCAR</h2>
+                    <h2 routerLink="/home" class="titulo-aba hover" *ngIf="categoria === 'zero lactose'">
+                    <i routerLink="/home" class="bi bi-chevron-left hover"></i> ZERO LACTOSE</h2>
+                    <h2 routerLink="/home" class="titulo-aba hover" *ngIf="categoria === 'zero glúten'">
+                    <i routerLink="/home" class="bi bi-chevron-left hover"></i> ZERO GLÚTEN</h2>
                 </div>
             </div>
             <div class="col-9 col-lg-8 pb-3">
@@ -96,6 +96,8 @@
             </div>
             <div class="col-7" (click)="abreFechaCard(i)">
               <h3>{{restaurante.nome}}</h3>
+              <small class="avaliacao"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></small>
+              <small>{{restaurante.custo}}</small>
               <p>{{restaurante.descricao}}</p>
             </div>
             <div class="col-1">

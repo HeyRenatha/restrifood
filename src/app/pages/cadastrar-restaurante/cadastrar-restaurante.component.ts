@@ -10,6 +10,7 @@ export class CadastrarRestauranteComponent {
 
   srcRestaurante: string = '';
   nome: string = '';
+  custo: string = '';
   cnpj: string = '';
   descricao: string = '';
   endereco: string = '';
@@ -30,6 +31,7 @@ export class CadastrarRestauranteComponent {
     const objRestaurante = {
       imagem: this.srcRestaurante,
       nome: this.nome,
+      custo: this.custo,
       descricao: this.descricao,
       endereco: this.endereco,
       telefone: this.telefone,

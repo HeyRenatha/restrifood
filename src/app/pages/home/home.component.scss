@@ -117,8 +117,17 @@
     box-shadow: 0px 4px 3px 1px #0a0a0a20;
 }
 
+@media (max-width: 1025px) {
+    .header-home-background {  background-size: auto 100% !important }
+    
+    .header-home-ia-background { background-size: auto 100% !important }
+}
+
 @media (max-width: 460px) {
     .imagem-card { width: 100%; max-width: 70px; }
+    .header-home-background {  background-size: auto 100%; }
+    
+    .header-home-ia-background { background-size: auto 100%; }
 }
 
 p{ color: #625D5D; }
