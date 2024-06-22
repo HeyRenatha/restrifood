@@ -11,17 +11,6 @@
                 Aqui você pode solicitar uma receita com os ingredientes desejados, selecionando a sua restrição e o RestriChef gera uma receita especial para você!</p>
                 <input [(ngModel)]="pesquisaUsuario" class="input-restrichef" type="text" placeholder="Digite os ingredientes que você deseja">
                 <div class="row">
-                    <!-- <div class="col-6 pt-2">
-                        <select [(ngModel)]="restricaoUsuario" class="form-select form-select-sm input-restrichef" aria-label="Small select example">
-                            <option value="" selected>Selecione a Restrição:</option>
-                            <option value="vegana">Vegano</option>
-                            <option value="vegetariana">Vegetariano</option>
-                            <option value="fitness">Fitness</option>
-                            <option value="sem açúcar">Sem Açúcar</option>
-                            <option value="sem lactose">Sem Lactose</option>
-                            <option value="sem glúten">Sem Glúten</option>
-                          </select>
-                    </div> -->
                     <div class="col-12 col-md-9 pt-2">
                         <div class="form-check form-check-inline mt-2">
                             <input class="form-check-input" type="checkbox" id="vegano" value="vegano" name="restricoes">
@@ -62,6 +51,7 @@
                             </div>
                     </div>
                     <div class="col-12">
+                        <i class="float-end bi bi-clipboard mb-1 c-primary hover" *ngIf="!carregando && respostaApi" (click)="copiarParaClipboard()"></i>
                         <div [class.input-receita]="carregando === false" id="respostaReceita">
                         </div>
                     </div>

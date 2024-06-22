@@ -8,7 +8,8 @@
 
 .header-home-background {
     background-image: url("../../../assets/img/header.png");
-    background-position: center;
+    background-size: 100% auto;
+    background-position: top center;
     background-color: var(--primary-color);
     opacity: 1;
     animation: fadeIn 0.5s linear;
@@ -16,7 +17,8 @@
 
 .header-home-ia-background {
     background-image: url("../../../assets/img/headerIA.png");
-    background-position: center;
+    background-size: 100% auto;
+    background-position: top center;
     background-color: var(--primary-color);
     opacity: 1;
     animation: fadeIn 0.5s linear;

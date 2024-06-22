@@ -16,13 +16,14 @@ export class RestrichefComponent {
   restricaoUsuario: string = '';
   restricoesSelecionadas: string;
 
-  receitaGerada: string;
+  respostaApi: string;
   carregando: boolean = false;
 
   async runChat() {
     this.capturaRestricoesSelecionadas();
     let divReceita: any = document.getElementById('respostaReceita');
     divReceita.innerHTML = '';
+    this.respostaApi = '';
 
     this.carregando = true;
     const genAI = new GoogleGenerativeAI(this.API_KEY);
@@ -59,11 +60,11 @@ export class RestrichefComponent {
       safetySettings
     });
   
-    const configuracoesExtras = '. Sempre gere em modo HTML, porém iniciando pelo H1 (não precisa de toda estrutura do HTML, sendo ingredientes com ul e li e modo de preparo com ol e li) e retorne Ingredientes e Modo de preparo'
+    const configuracoesExtras = '. Sempre gere em modo HTML, porém iniciando pelo H1 (não precisa de toda estrutura do HTML, sendo ingredientes com ul e li e modo de preparo com ol e li) e retorne Ingredientes e Modo de preparo. Não escreva nada nem antes nem depois das tags, quero apenas as tags na resposta.'
     const result = await chat.sendMessage('Gere uma receita ' + this.restricoesSelecionadas + 'de: ' + this.pesquisaUsuario + configuracoesExtras);
     const response = result.response;
+    this.respostaApi = response.text();
 
-    console.log(response.text());
     this.carregando = false;
     divReceita.innerHTML = response.text();
     // Gere uma receita sem glúten com ovo, açúcar e farinha. Sempre gere em modo HTML, porém iniciando pelo H1 (não precisa de toda estrutura do HTML)
@@ -76,6 +77,19 @@ export class RestrichefComponent {
     restricoes.forEach((restricao: any) => {
       this.restricoesSelecionadas = this.restricoesSelecionadas + restricao.defaultValue + ' e '
     });
+  }
+
+  copiarParaClipboard() {
+    const texto: any = document.getElementById('respostaReceita');
+    const textArea = document.createElement('textarea');
+
+    textArea.value = texto.innerText;
+    document.body.appendChild(textArea);
+    textArea.select();
+    
+    navigator.clipboard.writeText(textArea.value);
+    document.body.removeChild(textArea);
+    window.alert('Receita copiada para a área de transferência!');
   }
 
 }
